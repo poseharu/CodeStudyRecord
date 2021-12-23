@@ -1,3 +1,4 @@
 work start
 clone A work 2
-clone A work 3
+clone B work 3
+clone A work 4
