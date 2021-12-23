@@ -3,3 +3,4 @@ clone A work 2
 clone B work 3
 clone A work 4
 clone B work 5
+clone C work 6
