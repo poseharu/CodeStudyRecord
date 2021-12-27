@@ -6,5 +6,5 @@
 ## 목차
 
 ### HTML
-- [html 용어 정리](https://github.com/poseharu/CodeStudyRecord/study-html)
-- 실습 웹페이지 ([클론페이지](https://github.com/poseharu/CodeStudyRecord/clone-html))
+- [html 용어 정리](https://poseharu.github.io/CodeStudyRecord/study-html)
+- 실습 웹페이지 ([클론페이지](https://poseharu.github.io/CodeStudyRecord/clone-html))
