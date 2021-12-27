@@ -1,4 +1,10 @@
 # CodeStudyRecord
-코드관련 공부 및 기록
 
-1. html 정리 (study-html)
+## 소개
+- 코드 관련 공부 및 기록를 정리 하기 위한 웹페이지.
+
+## 목차
+
+### HTML
+- [html 용어 정리](https://github.com/poseharu/CodeStudyRecord/study-html)
+- 실습 웹페이지 ([클론페이지](https://github.com/poseharu/CodeStudyRecord/clone-html))
