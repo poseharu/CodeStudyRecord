@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <style>
+      /* 전체 선택자 */
+      * {
+        color: red;
+      }
+
+      /* 요소 선택자 */
+      span { 
+        color: blue;
+      }
+      h1 {
+        color: black;
+      }
+
+      /* id 선택자 */
+      #testId {
+        color: gray;
+      }
+
+      /* class 선택자 */
+      .testClass {
+        color: brown;
+        font-size: 20px;
+      }
+      span.testClass {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="../index.html">back</a>
+
+    <h1>class Selector</h1>
+
+    <p>텍스트1</p>
+    <section>
+      <p>텍스트2</p>
+      <article>
+        <p id="testId">텍스트3</p>
+        <div>
+          <p class="testClass">텍스트4</p>
+        </div>
+      </article>
+      <span>텍스트5</span>
+    </section>
+    <p>텍스트6</p>
+    <span class="testClass">텍스트7</span>
+  </body>
+</html>

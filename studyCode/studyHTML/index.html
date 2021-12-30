@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>html study</title>
+  </head>
+  <body>
+    <h1>html</h1>
+
+    <a href="../index.html">home</a>
+    <ul>
+      <li>
+        <a href="../studyHTML/index.html">html</a>
+      </li>
+      <li>
+        <a href="../studyCSS/index.html">css</a>
+      </li>
+      <li>
+        <a href="../studyJavascript/index.html">javascript</a>
+      </li>
+    </ul>
+
+    <img src="./img/coding.jpg" alt="coding">
+
+    <p>HyperText Markup Language(HTML)는 웹 페이지를 만드는 데 사용되는 표준 마크업 언어이다. </p>
+    <p>HTML은 CSS, 자바스크립트와 함께 시각적으로 매력적인 웹 페이지, 웹 애플리케이션을 위한 사용자 인터페이스, 수많은 모바일 애플리케이션을 위한 사용자 인터페이스를 만들기 위해 대부분의 웹 사이트에 사용되는 초석 기술이다. 
+      웹 브라우저는 HTML 파일을 읽고 볼 수 있는 또는 들을 수 있는 웹 페이지로 렌더링할 수 있습니다. 
+      HTML은 웹 사이트의 구조를 의미론적으로 표현하기 위한 신호와 함께 기술하여 프로그래밍 언어가 아닌 마크업 언어로 만든다.</p>
+    <p>HTML 요소는 모든 웹 사이트의 구성 요소를 구성합니다. 
+      HTML은 이미지와 객체를 삽입할 수 있게 하며 대화형 양식을 만드는 데 사용할 수 있습니다. 
+      제목, 단락, 목록, 링크, 인용문 및 기타 항목과 같은 텍스트에 대한 구조적 의미론을 표시함으로써 구조화된 문서를 작성할 수 있는 수단을 제공한다.</p>
+    <p>언어는 꺾쇠 괄호로 묶인 태그로 구성된 HTML 요소의 형태로 작성됩니다. 
+      브라우저는 HTML 태그와 스크립트를 표시하지 않고 페이지의 내용을 해석하는 데 사용합니다.</p>
+
+    <br><br>
+
+    <form action="http://localhost/login.php" autocomplete="on">
+      <label for="userId">text :</label>
+      <input type="text" name="userId" placeholder="아이디를 입력해주세요.">
+      <br><br>
+
+      <label for="pwd">password :</label>
+      <input type="password" name="pwd" autocomplete="off" placeholder="비밀번호를 입력해주세요.">
+      <br><br>
+
+      <input type="submit">
+    </form>
+    <form action="http://localhost/info.php"></form>
+      <label for="info">자기소개 :</label>
+      <textarea name="info" cols="50" rows="10"></textarea>
+      <br><br>
+
+      <label for="profile">프로필이미지 :</label>
+      <input type="file" id="profile" name="profile">
+
+      <input type="hidden" name="hide" value="hide">
+
+      <br><br>
+      <input type="submit">
+    </form>
+    <form action="http://localhost/color.php" method="post">
+      <h1>select</h1>
+      <select name="color">
+        <option value="red">붉은색</option>
+        <option value="black">검은색</option>
+        <option value="blue">파란색</option>
+      </select>
+      <input type="submit">
+    </form>
+    <form action="http://localhost/order.php" method="post">
+      <div>
+        <h1>radio</h1>
+        <label for="c_red">붉은색 :</label>
+        <input type="radio" id="c_red" name="color" value="red">
+        <label for="c_black">검은색 :</label>
+        <input type="radio" id="c_black" name="color" value="black" checked>
+        <label for="c_blue">파란색 :</label>
+        <input type="radio" id="c_blue" name="color" value="blue">
+      </div>
+      <div>
+        <h1>checkbox</h1>
+        <label for="s_95">95 :</label>
+        <input type="checkbox" id="s_95" name="size" value="95" checked>
+        <label for="s_100">100 :</label>
+        <input type="checkbox" id="s_100" name="size" value="100" >
+        <label for="s_105">105 :</label>
+        <input type="checkbox" id="s_105" name="size" value="105" checked>
+      </div>
+      <br><br>
+
+      <input type="submit">
+    </form>
+  </body>
+</html>
