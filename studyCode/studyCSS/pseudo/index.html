@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>CSS 가상 선택자 예제</title>
+    
+    <style>
+      section{
+        border: 5px solid blue;
+        padding: 5px;
+        margin: 5px;
+        text-align: center;
+      }
+
+      .one-section .btn{
+        border: 1px solid black;
+        width: 100px;
+        height: 50px;
+        margin: 0 auto;
+        line-height: 50px;
+        background-color: green;
+        color: white;
+      }
+      .one-section .btn:hover {
+        background-color: blue;
+      }
+      .one-section .btn:active {
+        background-color: red;
+      }
+
+      .two-section a:link {
+        color: blue;
+      }
+      .two-section a:visited {
+        color: green;
+      }
+
+      .three-section > #checkbox > input:checked + label,
+      .three-section > #radio > input:checked + label,
+      .three-section > #select option:checked{
+        color: blue;
+        font-weight: bold;
+      }
+
+      .four-section input{
+        width: 150px;
+        font-size: 20px;
+      }
+      .four-section input:focus {
+        background-color: yellow;
+      }
+      .four-section input:enabled {
+        border: 2px solid green;
+      }
+      .four-section input:disabled {
+        border: 2px solid red;
+      }
+
+      .five-section > #color-div > p:nth-child(2n){
+        background-color: pink;
+      }
+      .five-section > #color-div > p:nth-child(2n+1){
+        background-color: orange;
+      }
+      .five-section > #color-div > p:first-child{
+        background-color: red;
+      }
+      .five-section > #color-div > p:last-child{
+        background-color: green;
+      }
+      .five-section > #color-div > p:nth-last-child(2){
+        background-color: purple;
+      }
+
+      .six-section .text-first{
+        width: 250px;
+        margin: 0 auto;
+        border: 2px solid green;
+      }
+      .six-section .text-first::first-line {
+        font-weight: bold;
+      }
+      .six-section .text-first::first-letter {
+        font-size: 20px;
+      }
+      .six-section .text-first::selection{
+        background-color: yellow;
+      }
+
+      .seven-section .content{
+        width: 400px;
+        margin: 0 auto;
+        border: 2px solid green;
+      }
+      .seven-section .content::before{
+        content: url(./img/action-heart.gif);
+      }
+      .seven-section .content::after{
+        font-size: 20px;
+        content: ' - 화이팅 - '
+      }
+
+      .eight-section .menu-list{
+        margin: 0 auto;
+        width: 200px;
+        text-align: left;
+        font-size: 30px;
+      }
+      .menu-list > ul li::marker {
+        content: url(./img/heart.jpg);
+      }
+      .menu-list > ol li::marker {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="../index.html">back</a>
+
+    <h1>Pseudo Selector</h1>
+
+    <section class="one-section">
+      <h2>1. :hover, :active</h2>
+      <p>:hover - 버튼에 마우스를 올리면 버튼이 파랑색으로 변함</p>
+      <p>:active - 버튼을 클릭하면 버튼이 빨강색으로 변함</p>
+      <div class="btn">버튼</div>
+    </section>
+
+    <section class="two-section">
+      <h2>2. :link, :visited</h2>
+      <p>:link - 아직 방문하기 전의 링크(파랑색)</p>
+      <p>:visited - 이미 방문 후의 링크(초록색)</p>
+      <a href="https://blog.naver.com/poseharu3">1번 링크</a>
+      <a href="https://blog.naver.com/poseharu/222608797092">2번 링크</a>
+    </section>
+
+    <section class="three-section">
+      <h2>3. :checked</h2>
+      <p>:checked - 선택에 대한 글자색 변경(파랑색)</p>
+      <div id="select">
+        <label for="city">좋아하는 도시: </label>
+        <select id="city" name="city">
+          <option value="seoul">서울</option>
+          <option value="incheon">인천</option>
+          <option value="daejeon">대전</option>
+          <option value="daegu">대구</option>
+          <option value="pusan">부산</option>
+          <option value="ulsan">울산</option>
+        </select>
+      </div>
+      <div id="checkbox">
+        <input type="checkbox" id="color-red" name="color">
+        <label for="color-red">red</label>
+        <input type="checkbox" id="color-yellow" name="color">
+        <label for="color-yellow">yellow</label>
+        <input type="checkbox" id="color-blue" name="color">
+        <label for="color-blue">blue</label>
+      </div>
+      <div id="radio">
+        <input type="radio" id="number-1" name="number">
+        <label for="number-1">숫자 1</label>
+        <input type="radio" id="number-2" name="number">
+        <label for="number-2">숫자 2</label>
+        <input type="radio" id="number-3" name="number">
+        <label for="number-3">숫자 3</label>
+      </div>
+    </section>
+
+    <section class="four-section">
+      <h2>4. :focus, :enabled, :disabled</h2>
+      <p>:focus - input의 포커스 될때 배경색을 노랑색으로 변경</p>
+      <p>:enabled - input이 활성화 될때 border 초록색으로 변경</p>
+      <p>:disabled - input이 비활성화 될때 border 빨강색으로 변경</p>
+
+      <input type="text" id="enabled-input" value="" placeholder="활성화" />
+      <input type="text" id="disabled-input" value="" placeholder="비활성화" disabled />
+    </section>
+
+    <section class="five-section">
+      <h2>5. :first-child, :last-child, :nth-child(n), :nth-last-child(n)</h2>
+      <p>:first-child - 첫번째 자식요소는 빨강색</p>
+      <p>:last-child - 마지막 자식요소는 초록색</p>
+      <p>:nth-child(2n+1) - 홀수번째 자식요소는 주황색</p>
+      <p>:nth-last-child(2) - 끝에서 역순으로 2번째 자식요소는 보라색</p>
+      <div id="color-div">
+        <p>첫번째</p>
+        <p>짝수</p>
+        <p>홀수</p>
+        <p>짝수</p>
+        <p>홀수</p>
+        <p>짝수</p>
+        <p>홀수</p>
+        <p>마지막</p>
+      </div>
+    </section>
+
+    <section class="six-section">
+      <h2>6. ::first-line, ::first-letter, ::selection</h2>
+      <p>::first-line - 문장의 첫 줄만 blod로 스타일 변경</p>
+      <p>::first-letter - 문장의 첫 글자만 글자 크게하기</p>
+      <p>::selection - 문장에서 사용자에 의해 선택된 부분을 노랑색 변경</p>
+      <p class="text-first">
+        동해물과 백두산이 마르고 닳도록 
+        하느님이 보우하사 우리나라 만세 
+        무궁화 삼천리 화려 강산 
+        대한 사람 대한으로 길이 보전하세</p>
+    </section>
+
+    <section class="seven-section">
+      <h2>7. ::before, ::after</h2>
+      <p>::before - 내용 앞에 가상 요소를 생성하여 이미지 추가하기</p>
+      <p>::after - 내용 뒤에 가상 요소를 생성하여 텍스트 추가하기</p>
+      <p class="content">가상요소 '콘텐츠'입니다.</p>
+    </section>
+
+    <section class="eight-section">
+      <h2>8. ::marker</h2>
+      <p>::marker - 리스트 항목의 마커를 선택하여 스타일 변경</p>
+      <p>ul 마커 대신 하트이미지로 변경</p>
+      <p>ol 마커 파랑 글자색으로 변경</p>
+      <div class="menu-list">
+        <ul>
+          <li>아메리카노</li>
+          <li>카페모카</li>
+          <li>바닐라라테</li>
+          <li>레몬에이드</li>
+        </ul>
+        <ol>
+          <li>First</li>
+          <li>Second</li>
+          <li>Third</li>
+        </ol>
+      </div>
+    </section>
+  </body>
+</html>
