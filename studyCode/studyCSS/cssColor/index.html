@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>CSS 색상 예제</title>
+    
+    <style>
+      section{
+        border: 5px solid blue;
+        padding: 5px;
+        margin: 5px;
+        text-align: center;
+      }
+
+      .colorBox{
+        font-size: 1.5rem;
+        color: white;
+        border: 1px solid black;
+      }
+
+      .color-red{ background-color: red; }
+      .color-green{ background-color: green; }
+      .color-blue{ background-color: blue; }
+
+      .color-rgb1{ background-color: rgb(238, 130, 238); }
+      .color-rgb2{ background-color: rgb(255, 165, 0); }
+      .color-rgb3{ background-color: rgb(60, 179, 113); }
+
+      .color-hex1{ background-color: #af7812; }
+      .color-hex2{ background-color: #f35bf3; }
+      .color-hex3{ background-color: #4536a5; }
+
+      .color-hsl1{ background-color: hsl(248, 53%, 58%); }
+      .color-hsl2{ background-color: hsl(147, 50%, 47%); }
+      .color-hsl3{ background-color: hsl(0, 100%, 50%); }
+
+    </style>
+  </head>
+  <body>
+    <a href="../index.html">back</a>
+
+    <h1>css 색상값 예시</h1>
+
+    <section class="one-section">
+      <h2>1. color name</h2>
+      <p>미리 정의된 색상 이름을 사용하여 색상을 설정</p>
+      
+      <span class="colorBox color-red">red</span>
+      <span class="colorBox color-green">green</span>
+      <span class="colorBox color-blue">blue</span> 
+    </section>
+
+    <section class="two-section">
+      <h2>2. RGB</h2>
+      <p>rgb(빨강, 초록, 파랑)의 형식을 사용하여 색상을 설정</p>
+      <p>0~255 사이의 색상 강도를 가진다.</p>
+      
+      <span class="colorBox color-rgb1">rgb(238, 130, 238)</span>
+      <span class="colorBox color-rgb2">rgb(255, 165, 0)</span>
+      <span class="colorBox color-rgb3">rgb(60, 179, 113)</span> 
+    </section>
+
+    <section class="three-section">
+      <h2>3. HEX</h2>
+      <p>#rrggbb의 형식을 사용하여 색상을 설정</p>
+      <p>00~ff 사이의 16진수 값으로 색상 강도를 가진다.</p>
+
+      <span class="colorBox color-hex1">#af7812</span>
+      <span class="colorBox color-hex2">#f35bf3</span>
+      <span class="colorBox color-hex3">#4536a5</span>
+    </section>
+
+    <section class="four-section">
+      <h2>4. HSL</h2>
+      <p>hsl(색조, 채도, 밝기)의 형식을 사용하여 색상을 설정</p>
+      <p>색조는 0~360도의 색상환, 채도는 0~100%의 회색 음영, 밝기는 0~100%의 빛의 양을 의미한다.</p>
+
+      <span class="colorBox color-hsl1">hsl(248, 53%, 58%)</span>
+      <span class="colorBox color-hsl2">hsl(147, 50%, 47%)</span>
+      <span class="colorBox color-hsl3">hsl(0, 100%, 50%)</span>
+    </section>
+  </body>
+</html>
