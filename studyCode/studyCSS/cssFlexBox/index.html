@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>CSS Flexbox 예제</title>
+    
+    <style>
+      section{
+        border: 5px solid blue;
+        padding: 5px;
+        margin: 5px;
+        text-align: center;
+      }
+      div, p{
+        margin: 0;
+        padding: 0;
+      }
+
+      .title{
+        margin-top: 30px;
+        text-align: left;
+        font-size: 25px;
+      }
+
+      .flex-container {
+        display: flex;
+        background-color: green;
+      }
+
+      .flex-container > div {
+        background-color: #e1e1e1;
+        width: 50px;
+        margin: 5px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 30px;
+      }
+
+      .flexDirection-row{ flex-direction: row; }
+      .flexDirection-rowReverse{ flex-direction: row-reverse; }
+      .flexDirection-column{ flex-direction: column; }
+      .flexDirection-columnReverse{ flex-direction: column-reverse; }
+
+      .flexWrap-nowrap{ flex-wrap: nowrap; }
+      .flexWrap-wrap{ flex-wrap: wrap; }
+      .flexWrap-wrapReverse{ flex-wrap: wrap-reverse; }
+
+      .flexFlow-columnWrap{
+        height: 200px;
+        flex-flow: column wrap; 
+      }
+
+      .justifyContent-flexStart{ justify-content: flex-start; }
+      .justifyContent-flexEnd{ justify-content: flex-end; }
+      .justifyContent-center{ justify-content: center; }
+      .justifyContent-spaceBetween{ justify-content: space-between }
+      .justifyContent-spaceAround{ justify-content: space-around }
+      .justifyContent-spaceEvenly{ justify-content: space-evenly }
+
+      .containerH200{ height: 200px; }
+      .alignItems-flexStart{ align-items: flex-start; }
+      .alignItems-flexEnd{ align-items: flex-end; }
+      .alignItems-center{ align-items: center; }
+      .alignItems-stretch{ align-items: stretch; }
+      .alignItems-baseline{ align-items: baseline; }
+
+      .containerH400{ height: 400px; }
+      .alignContent-flexStart{ flex-wrap: wrap; align-content: flex-start; }
+      .alignContent-flexEnd{ flex-wrap: wrap; align-content: flex-end; }
+      .alignContent-center{ flex-wrap: wrap; align-content: center; }
+      .alignContent-spaceBetween{ flex-wrap: wrap; align-content: space-between; }
+      .alignContent-spaceAround{ flex-wrap: wrap; align-content: space-around; }
+      .alignContent-spaceEvenly{ flex-wrap: wrap; align-content: space-evenly; }
+    </style>
+  </head>
+  <body>
+    <a href="../index.html">back</a>
+
+    <h1>CSS Flexbox 예제</h1>
+
+    <section class="section1">
+      <h2>flex-direction 속성</h2>
+
+      <p class="title">flex-direction: row;</p>
+      <div class="flex-container flexDirection-row">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </div>
+
+      <p class="title">flex-direction: direction-reverse;</p>
+      <div class="flex-container flexDirection-rowReverse">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </div>
+
+      <p class="title">flex-direction: column;</p>
+      <div class="flex-container flexDirection-column">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </div>
+
+      <p class="title">flex-direction: column-reverse;</p>
+      <div class="flex-container flexDirection-columnReverse">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </div>
+    </section>
+
+    <section id="section2">
+      <h2>flex-wrap 속성</h2>
+
+      <p class="title">flex-wrap: nowrap;</p>
+      <div class="flex-container flexWrap-nowrap">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+        <div>18</div>
+        <div>19</div>
+        <div>20</div>
+      </div>
+
+      <p class="title">flex-wrap: wrap;</p>
+      <div class="flex-container flexWrap-wrap">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+        <div>18</div>
+        <div>19</div>
+        <div>20</div>
+      </div>
+
+      <p class="title">flex-wrap: wrap-reverse;</p>
+      <div class="flex-container flexWrap-wrapReverse">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+        <div>18</div>
+        <div>19</div>
+        <div>20</div>
+      </div>
+    </section>
+
+    <section id="section3">
+      <h2>flex-flow 속성</h2>
+
+      <p class="title">flex-flow: column wrap;</p>
+      <div class="flex-container flexFlow-columnWrap">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+        <div>18</div>
+        <div>19</div>
+        <div>20</div>
+      </div>
+    </section>
+
+    <section id="section4">
+      <h2>justify-content 속성</h2>
+      
+      <p class="title">justify-content: flex-start;</p>
+      <div class="flex-container justifyContent-flexStart">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+      </div>
+
+      <p class="title">justify-content: flex-end;</p>
+      <div class="flex-container justifyContent-flexEnd">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+      </div>
+
+      <p class="title">justify-content: center;</p>
+      <div class="flex-container justifyContent-center">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+      </div>
+
+      <p class="title">justify-content: space-between;</p>
+      <div class="flex-container justifyContent-spaceBetween">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+      </div>
+
+      <p class="title">justify-content: space-around;</p>
+      <div class="flex-container justifyContent-spaceAround">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+      </div>
+
+      <p class="title">justify-content: space-evenly;</p>
+      <div class="flex-container justifyContent-spaceEvenly">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+      </div>
+    </section>
+
+    <section id="section5">
+      <h2>align-items 속성</h2>
+
+      <p class="title">align-items: flex-start;</p>
+      <div class="flex-container containerH200 alignItems-flexStart">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+      </div>
+
+      <p class="title">align-items: flex-end;</p>
+      <div class="flex-container containerH200 alignItems-flexEnd">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+      </div>
+
+      <p class="title">align-items: center;</p>
+      <div class="flex-container containerH200 alignItems-center">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+      </div>
+
+      <p class="title">align-items: stretch;</p>
+      <div class="flex-container containerH200 alignItems-stretch">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+      </div>
+
+      <p class="title">align-items: baseline;</p>
+      <div class="flex-container containerH200 alignItems-baseline">
+        <div><h1>1</h1></div>
+        <div><h2>2</h2></div>
+        <div><h3>3</h3></div>
+        <div><h4>4</h4></div>
+        <div><h5>5</h5></div>
+        <div><h6>6</h6></div>
+        <div><small>7</small></div>
+        <div><strong>8</strong></div>
+        <div style="font-size: 50px;">9</div>
+        <div style="font-size: 10px;">10</div>
+      </div>
+    </section>
+
+    <section id="section6">
+      <h2>align-content 속성</h2>
+
+      <p class="title">align-content: flex-start;</p>
+      <div class="flex-container containerH400 alignContent-flexStart">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+        <div>18</div>
+        <div>19</div>
+        <div>20</div>
+      </div>
+
+      <p class="title">align-content: flex-end;</p>
+      <div class="flex-container containerH400 alignContent-flexEnd">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+        <div>18</div>
+        <div>19</div>
+        <div>20</div>
+      </div>
+
+      <p class="title">align-content: center;</p>
+      <div class="flex-container containerH400 alignContent-center">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+        <div>18</div>
+        <div>19</div>
+        <div>20</div>
+      </div>
+
+      <p class="title">align-content: stretch;</p>
+      <div class="flex-container containerH400 alignContent-stretch">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+        <div>18</div>
+        <div>19</div>
+        <div>20</div>
+      </div>
+
+      <p class="title">align-content: space-between;</p>
+      <div class="flex-container containerH400 alignContent-spaceBetween">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+        <div>18</div>
+        <div>19</div>
+        <div>20</div>
+      </div>
+
+      <p class="title">align-content: space-around;</p>
+      <div class="flex-container containerH400 alignContent-spaceAround">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+        <div>18</div>
+        <div>19</div>
+        <div>20</div>
+      </div>
+
+      <p class="title">align-content: space-evenly;</p>
+      <div class="flex-container containerH400 alignContent-spaceEvenly">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+        <div>18</div>
+        <div>19</div>
+        <div>20</div>
+      </div>
+    </section>
+
+    <section id="section7">
+      <h2>order 속성</h2>
+
+      <p class="title">order: 숫자;</p>
+      <div class="flex-container">
+        <div style="order: 2">1</div>
+        <div style="order: 4">2</div>
+        <div style="order: 5">3</div>
+        <div style="order: 1">4</div>
+        <div style="order: 3">5</div>
+      </div>
+    </section>
+
+    <section id="section8">
+      <h2>flex-grow 속성</h2>
+
+      <p class="title">flex-grow: 숫자;</p>
+      <div class="flex-container">
+        <div style="flex-grow: 1">1</div>
+        <div style="flex-grow: 2">2</div>
+        <div style="flex-grow: 3">3</div>
+        <div style="flex-grow: 4">4</div>
+        <div style="flex-grow: 5">5</div>
+      </div>
+    </section>
+
+    <section id="section9">
+      <h2>flex-shrink 속성</h2>
+
+      <p class="title">flex-shrink: 숫자;</p>
+      <div class="flex-container">
+        <div style="flex-shrink: 1">1</div>
+        <div style="flex-shrink: 2">2</div>
+        <div style="flex-shrink: 0">3</div>
+        <div style="flex-shrink: 4">4</div>
+        <div style="flex-shrink: 5">5</div>
+        <div style="flex-shrink: 1">6</div>
+        <div style="flex-shrink: 2">7</div>
+        <div style="flex-shrink: 0">8</div>
+        <div style="flex-shrink: 4">9</div>
+        <div style="flex-shrink: 5">10</div>
+      </div>
+    </section>
+
+    <section id="section10">
+      <h2>flex-basis 속성</h2>
+
+      <p class="title">flex-basis: 숫자 | %;</p>
+      <div class="flex-container">
+        <div style="flex-basis: 110px">1</div>
+        <div>2</div>
+        <div>3</div>
+        <div style="flex-basis: 100px">4</div>
+        <div>5</div>
+        <div style="flex-basis: 20%">6</div>
+        <div>7</div>
+        <div>8</div>
+        <div style="flex-basis: 10%">9</div>
+        <div>10</div>
+      </div>
+    </section>
+
+    <section id="section11">
+      <h2>flex 속성</h2>
+
+      <p class="title">flex : grow값 shrink값 basis값;</p>
+      <div class="flex-container">
+        <div style="flex: 0 0 100px">1</div>
+        <div>2</div>
+        <div>3</div>
+        <div style="flex: 1 1 auto">4</div>
+        <div>5</div>
+        <div style="flex: 0 1 20%">6</div>
+        <div>7</div>
+        <div>8</div>
+        <div style="flex: 1 0 10%">9</div>
+        <div>10</div>
+      </div>
+    </section>
+
+    <section id="section12">
+      <h2>align-self 속성</h2>
+
+      <p class="title">align-self : flex-start | flex-end | center | stretch | baseline</p>
+      <div class="flex-container containerH400 alignItems-baseline">
+        <div><h1>1</h1></div>
+        <div style="align-self: flex-end">2</div>
+        <div><h5>3</h5></div>
+        <div><h2>4</h2></div>
+        <div style="align-self: flex-start"><h4>5</h4></div>
+        <div style="font-size: 50px;">6</div>
+        <div><h3>7</h3></div>
+        <div style="align-self: stretch">8</div>
+        <div style="font-size: 10px;">9</div>
+        <div style="align-self: center"><small>10</small></div>
+      </div>
+    </section>
+  </body>
+</html>
