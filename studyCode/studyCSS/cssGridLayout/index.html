@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>CSS Grid Layout 예제</title>
+    
+    <style>
+      section{
+        border: 5px solid blue;
+        padding: 5px;
+        margin: 5px;
+        text-align: center;
+      }
+      div, p{
+        margin: 0;
+        padding: 0;
+      }
+
+      .title{
+        margin-top: 30px;
+        text-align: left;
+        font-size: 25px;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-gap: 5px;
+        background-color: green;
+        padding: 5px;
+      }
+      .grid-container > div {
+        background-color: #e1e1e1;
+        text-align: center;
+        font-size: 30px;
+      }
+      .containerH500{ height: 500px; }
+
+      .gridTemplateColumns-auto{
+        grid-template-columns: repeat(5, auto);
+      }
+      .gridTemplateColumns-type1{
+        grid-template-columns: 1fr 130px 20% auto 2fr;
+      }
+      .gridTemplateColumns-type2{
+        grid-template-columns: repeat(3, 2fr) 130px minmax(100px, 1fr);
+      }
+      .gridTemplateColumns-autoFill{
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      }
+      .gridTemplateColumns-autoFit{
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      }
+
+      .gridTemplateRows-auto{
+        grid-template-columns: repeat(6, auto);
+        grid-template-rows: repeat(5, auto);
+      }
+      .gridTemplateRows-type1{
+        grid-template-columns: repeat(6, auto);
+        grid-template-rows: 1fr 130px 20% auto 2fr;
+      }
+      .gridTemplateRows-type2{
+        grid-template-columns: repeat(6, auto);
+        grid-template-rows: repeat(3, 2fr) 130px minmax(100px, 1fr);
+      }
+
+      .item1{ grid-area: area1; }
+      .item2{ grid-area: area2; }
+      .item3{ grid-area: area3; }
+      .item4{ grid-area: area4; }
+      .item5{ grid-area: area5; }
+      .gridTemplateAreas-type1{
+        grid-template-areas : 'area1 area1 . . .';
+      }
+      .gridTemplateAreas-type2{
+        grid-template-areas : 'area1 area1 . . .' 'area1 area1 . . .';
+      }
+      .gridTemplateAreas-type3{
+        grid-template-areas : 
+        'area1 area1 area1 area1 area1 area1' 
+        'area2 area3 area3 area3 area4 area4' 
+        'area2 area5 area5 area5 area5 area5';
+      }
+
+      .gridTemplate-type1{
+        grid-template: repeat(auto-fit, 70px) / repeat(7, auto);
+      }
+
+      .gridTemplate-type2{
+        grid-template: 'area1 area1 area1 . . . .' 'area1 area1 area1 . . . .';
+      }
+
+      .justifyContent-start{ justify-content: start; }
+      .justifyContent-end{ justify-content: end; }
+      .justifyContent-center{ justify-content: center; }
+      .justifyContent-spaceBetween{ justify-content: space-between }
+      .justifyContent-spaceAround{ justify-content: space-around }
+      .justifyContent-spaceEvenly{ justify-content: space-evenly }
+
+      .alignContent-start{ align-content: start; }
+      .alignContent-end{ align-content: end; }
+      .alignContent-center{ align-content: center; }
+      .alignContent-spaceBetween{ align-content: space-between; }
+      .alignContent-spaceAround{ align-content: space-around; }
+      .alignContent-spaceEvenly{ align-content: space-evenly; }
+
+      .gridRowGap{ row-gap: 20px;}
+      .gridColumnGap{ column-gap: 10px;}
+      .gridGap{ gap: 20px 10px;}
+
+      .gridColumnStart-type1{ grid-column-start: span 4; color: yellow;}
+      .gridColumnStart-type2{ grid-column-start: 3; color: yellow;}
+
+      .gridColumnEnd-type1{ grid-column-end: span 4; color: yellow;}
+      .gridColumnEnd-type2{ grid-column-end: 3; color: yellow;}
+
+      .gridColumn-type1{ grid-column: span 2 / 5; color: yellow;}
+      .gridColumn-type2{ grid-column: 2 / span 3; color: yellow;}
+
+      .gridRowStart-type1{ grid-row-start: span 3; color: yellow;}
+      .gridRowStart-type2{ grid-row-start: 3; color: yellow;}
+      
+      .gridRowEnd-type1{ grid-row-end: span 3; color: yellow;}
+      .gridRowEnd-type2{ grid-row-end: 3; color: yellow;}
+
+      .gridRow-type1{ grid-row: span 3 / 7; color: yellow;}
+      .gridRow-type2{ grid-row: 3 / span 3; color: yellow;}
+
+      .gridArea-type1{ grid-area: 2 / 2 / 4 / 6; color: yellow; }
+      .gridArea-type2{ grid-area: 2 / 3 / span 7 / span 4; color: yellow; }
+      .gridArea-type3{ grid-area: span 4 / span 3 / 6 / 5; color: yellow; }
+      
+    </style>
+  </head>
+  <body>
+    <a href="../index.html">back</a>
+
+    <h1>CSS Grid Layout 예제</h1>
+
+    <section class="section1">
+      <h2>grid-template-columns 속성</h2>
+
+      <p class="title">grid-template-columns : repeat(5, auto);</p>
+      <div class="grid-container gridTemplateColumns-auto">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">grid-template-columns : 1fr 130px 20% auto 2fr</p>
+      <div class="grid-container gridTemplateColumns-type1">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">grid-template-columns : repeat(3, 2fr) 130px minmax(100px, 1fr)</p>
+      <div class="grid-container gridTemplateColumns-type2">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">grid-template-columns : repeat(auto-fill, minmax(100px, 1fr));</p>
+      <div class="grid-container gridTemplateColumns-autoFill">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+      </div>
+
+      <p class="title">grid-template-columns : repeat(auto-fit, minmax(100px, 1fr));</p>
+      <div class="grid-container gridTemplateColumns-autoFit">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+      </div>
+    </section>
+
+    <section id="section2">
+      <h2>gird-template-rows 속성</h2>
+
+      <p class="title">grid-template-rows : repeat(6, auto);</p>
+      <div class="grid-container gridTemplateRows-auto">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">grid-template-rows : 1fr 130px 20% auto 2fr</p>
+      <div class="grid-container gridTemplateRows-type1">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">grid-template-rows : repeat(3, 2fr) 130px minmax(100px, 1fr)</p>
+      <div class="grid-container gridTemplateRows-type2">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+    </section>
+
+    <section id="section3">
+      <h2>gird-template-areas 속성</h2>
+
+      <p class="title">grid-template-areas : 'area1 area1 . . .';</p>
+      <div class="grid-container gridTemplateAreas-type1">
+        <div class="item1">a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">grid-template-areas : 'area1 area1 . . .' 'area1 area1 . . .';</p>
+      <div class="grid-container gridTemplateAreas-type2">
+        <div class="item1">a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">grid-template-areas : 
+        'area1 area1 area1 area1 area1 area1' 
+        'area2 area3 area3 area3 area4 area4' 
+        'area2 area5 area5 area5 area5 area5';</p>
+      <div class="grid-container gridTemplateAreas-type3">
+        <div class="item1">a</div>
+        <div class="item2">b</div>
+        <div class="item3">c</div>
+        <div class="item4">d</div>
+        <div class="item5">e</div>
+      </div>
+    </section>
+
+    <section id="section4">
+      <h2>gird-template 속성</h2>
+
+      <p class="title">repeat(auto-fit, 70px); / repeat(7, auto);</p>
+      <div class="grid-container containerH500 gridTemplate-type1">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">'area1 area1 area1 . . . .' 'area1 area1 area1 . . . .'</p>
+      <div class="grid-container gridTemplate-type2">
+        <div class="item1">a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+    </section>
+
+    <section id="section5">
+      <h2>justify-content 속성</h2>
+      
+      <p class="title">justify-content: start;</p>
+      <div class="grid-container gridTemplateColumns-auto justifyContent-start">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">justify-content: end;</p>
+      <div class="grid-container gridTemplateColumns-auto justifyContent-end">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">justify-content: center;</p>
+      <div class="grid-container gridTemplateColumns-auto justifyContent-center">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">justify-content: space-between;</p>
+      <div class="grid-container gridTemplateColumns-auto justifyContent-spaceBetween">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">justify-content: space-around;</p>
+      <div class="grid-container gridTemplateColumns-auto justifyContent-spaceAround">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">justify-content: space-evenly;</p>
+      <div class="grid-container gridTemplateColumns-auto justifyContent-spaceEvenly">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+    </section>
+
+    <section id="section6">
+      <h2>align-content 속성</h2>
+
+      <p class="title">align-content: start;</p>
+      <div class="grid-container containerH500 gridTemplateColumns-auto alignContent-start">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">align-content: end;</p>
+      <div class="grid-container containerH500 gridTemplateColumns-auto alignContent-end">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">align-content: center;</p>
+      <div class="grid-container containerH500 gridTemplateColumns-auto alignContent-center">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">align-content: stretch;</p>
+      <div class="grid-container containerH500 gridTemplateColumns-auto alignContent-stretch">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">align-content: space-between;</p>
+      <div class="grid-container containerH500 gridTemplateColumns-auto alignContent-spaceBetween">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">align-content: space-around;</p>
+      <div class="grid-container containerH500 gridTemplateColumns-auto alignContent-spaceAround">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">align-content: space-evenly;</p>
+      <div class="grid-container containerH500 gridTemplateColumns-auto alignContent-spaceEvenly">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+    </section>
+
+    <section id="section7">
+      <h2>row-gap 속성</h2>
+
+      <p class="title">row-gap: 20px;</p>
+      <div class="grid-container gridTemplateColumns-auto gridRowGap">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+    </section>
+
+    <section id="section8">
+      <h2>column-gap 속성</h2>
+
+      <p class="title">column-gap: 10px;</p>
+      <div class="grid-container gridTemplateColumns-auto gridColumnGap">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+    </section>
+
+    <section id="section9">
+      <h2>gap 속성</h2>
+
+      <p class="title">gap: 20px 10px;</p>
+      <div class="grid-container gridTemplateColumns-auto gridGap">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+    </section>
+
+    <section id="section10">
+      <h2>grid-column-start 속성</h2>
+
+      <p class="title">grid-column-start: span 4</p>
+      <div class="grid-container gridTemplateColumns-auto">
+        <div class="gridColumnStart-type1">a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div class="gridColumnStart-type1">h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div class="gridColumnStart-type1">p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">grid-column-start: 3</p>
+      <div class="grid-container gridTemplateColumns-auto">
+        <div class="gridColumnStart-type2">a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div class="gridColumnStart-type2">h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div class="gridColumnStart-type2">p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+    </section>
+
+    <section id="section11">
+      <h2>grid-column-end 속성</h2>
+
+      <p class="title">grid-column-end: span 4</p>
+      <div class="grid-container gridTemplateColumns-auto">
+        <div class="gridColumnEnd-type1">a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div class="gridColumnEnd-type1">h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div class="gridColumnEnd-type1">p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">grid-column-end: 3</p>
+      <div class="grid-container gridTemplateColumns-auto">
+        <div class="gridColumnEnd-type2">a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div class="gridColumnEnd-type2">h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div class="gridColumnEnd-type2">p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+    </section>
+
+    <section id="section12">
+      <h2>grid-column 속성</h2>
+
+      <p class="title">grid-column: span 2 / 5</p>
+      <div class="grid-container gridTemplateColumns-auto">
+        <div class="gridColumn-type1">a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div class="gridColumn-type1">h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div class="gridColumn-type1">p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">grid-column: 2 / span 3</p>
+      <div class="grid-container gridTemplateColumns-auto">
+        <div class="gridColumn-type2">a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div class="gridColumn-type2">h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div class="gridColumn-type2">p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+    </section>
+
+    <section id="section13">
+      <h2>grid-row-start 속성</h2>
+
+      <p class="title">grid-row-start: span 3</p>
+      <div class="grid-container gridTemplateColumns-auto">
+        <div class="gridRowStart-type1">a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div class="gridRowStart-type1">h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div class="gridRowStart-type1">p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">grid-row-start: 3</p>
+      <div class="grid-container gridTemplateColumns-auto">
+        <div class="gridRowStart-type2">a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div class="gridRowStart-type2">h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div class="gridRowStart-type2">p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+    </section>
+
+    <section id="section14">
+      <h2>grid-row-end 속성</h2>
+
+      <p class="title">grid-row-end: span 3</p>
+      <div class="grid-container gridTemplateColumns-auto">
+        <div class="gridRowEnd-type1">a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div class="gridRowEnd-type1">h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div class="gridRowEnd-type1">p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">grid-row-end: 3</p>
+      <div class="grid-container gridTemplateColumns-auto">
+        <div class="gridRowEnd-type2">a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div class="gridRowEnd-type2">h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div class="gridRowEnd-type2">p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+    </section>
+
+    <section id="section15">
+      <h2>grid-row 속성</h2>
+
+      <p class="title">grid-row: span 3 / 7</p>
+      <div class="grid-container gridTemplateColumns-auto">
+        <div class="gridRow-type1">a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div class="gridRow-type1">h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div class="gridRow-type1">p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">grid-row: 3 / span 3</p>
+      <div class="grid-container gridTemplateColumns-auto">
+        <div class="gridRow-type2">a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div class="gridRow-type2">h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div class="gridRow-type2">p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+    </section>
+
+    <section id="section16">
+      <h2>grid-area 속성</h2>
+
+      <p class="title">grid-area: 2 / 2 / 4 / 6</p>
+      <div class="grid-container gridTemplateColumns-auto">
+        <div class="gridArea-type1">a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">grid-area: 2 / 3 / span 7 / span 4</p>
+      <div class="grid-container gridTemplateColumns-auto">
+        <div class="gridArea-type2">a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+
+      <p class="title">grid-area: span 4 / span 3 / 6 / 5</p>
+      <div class="grid-container gridTemplateColumns-auto">
+        <div class="gridArea-type3">a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+        <div>f</div>
+        <div>g</div>
+        <div>h</div>
+        <div>i</div>
+        <div>j</div>
+        <div>k</div>
+        <div>l</div>
+        <div>m</div>
+        <div>n</div>
+        <div>o</div>
+        <div>p</div>
+        <div>q</div>
+        <div>r</div>
+        <div>s</div>
+        <div>t</div>
+        <div>u</div>
+        <div>v</div>
+        <div>w</div>
+        <div>x</div>
+        <div>y</div>
+        <div>z</div>
+      </div>
+    </section>
+  </body>
+</html>
