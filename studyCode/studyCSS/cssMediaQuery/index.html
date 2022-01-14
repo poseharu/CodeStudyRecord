@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Media Query 예제</title>
+    
+    <style>
+      section{
+        border: 5px solid blue;
+        padding: 5px;
+        margin: 5px;
+        text-align: center;
+      }
+      div, p{
+        margin: 0;
+        padding: 0;
+      }
+
+      .title{
+        margin-top: 30px;
+        text-align: left;
+        font-size: 25px;
+      }
+
+      .container{
+        border: 2px solid black;
+      }
+      .show{
+        display: none;
+      }
+      
+      .container{
+        background-color: beige;
+      }
+      #section2 .container {
+        color: white;
+        background-color: blue;
+      }
+
+      /* mobile */
+      @media(min-width:639px){
+        #section1 .container{
+          background-color:deepskyblue;
+        }
+      }
+
+      /* tablet */
+      @media(min-width:768px){
+        #section1 .container{
+          background-color: red;
+        }
+        .show{
+          display: inline;
+          font-size: 40px;
+          color: coral;
+        }
+      }
+
+      /* laptop */
+      @media(min-width:1020px){
+        #section1 .container{
+          background-color: green;
+        }
+      }
+
+      /* desktop */
+      @media(min-width:1400px){
+        #section1 .container{
+          background-color: yellow;
+        }
+      }
+
+      @media(min-height:600px){
+        #section2 .container{
+          background-color: hotpink;
+        }
+      }
+
+      @media only screen and (min-aspect-ratio: 16/9) {
+        #section3 .container {
+          background-color: indigo;
+        }
+      }
+
+      @media only screen and (orientation: landscape) {
+        #section4 .container {
+          background-color: red;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="../index.html">back</a>
+
+    <h1>CSS Media Query 예제</h1>
+
+    <section id="section1">
+      <h2>width 미디어 기능</h2>
+
+      <p class="title">min-width에 따라 배경색 바뀜</p>
+      <div class="container">
+        <p>Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language.</p>
+      </div>
+
+      <p class="title">min-width에 따라 숨김 설정</p>
+      <div class="show">
+        <p>contents</p>
+      </div>
+    </section>
+
+    <section id="section2">
+      <h2>min-height 미디어 기능</h2>
+
+      <p class="title">min-height에 따라 배경색 바뀜</p>
+      <div class="container">
+        <p>Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language.</p>
+      </div>
+    </section>
+
+    <section id="section3">
+      <h2>aspect-ratio 미디어 기능</h2>
+
+      <p class="title">aspect-ratio에 따라 배경색 바뀜</p>
+      <div class="container">
+        <p>Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language.</p>
+      </div>
+    </section>
+
+    <section id="section4">
+      <h2>orientation 미디어 기능</h2>
+
+      <p class="title">orientation에 따라 배경색 바뀜</p>
+      <div class="container">
+        <p>Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language.</p>
+      </div>
+    </section>
+  </body>
+</html>
