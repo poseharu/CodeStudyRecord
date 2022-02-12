@@ -1,0 +1,9 @@
+div.inputArea{
+  border: 1px solid blue;
+  padding: 20px;
+  margin: 20px;
+}
+
+#image_container img{
+  width: 10%;
+}
