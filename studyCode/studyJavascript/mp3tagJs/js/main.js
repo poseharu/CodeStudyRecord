@@ -29,10 +29,11 @@ function makeElement(data, id){
 inputMp3.onchange = function () {
   const reader = new FileReader()
   reader.onload = function () {
-    const buffer = this.result
+    playList.innerHTML = "";
+    const buffer = this.result;
 
     // MP3Tag Usage
-    const mp3tag = new MP3Tag(buffer)
+    const mp3tag = new MP3Tag(buffer);
     mp3tag.read();
     // console.log(mp3tag.tags);
     //앨범 이미지 가져오는건 구현하기 힘들어서 포기
@@ -48,7 +49,7 @@ inputMp3.onchange = function () {
   }
 
   if (this.files.length > 0) {
-    reader.readAsArrayBuffer(this.files[0])
+    reader.readAsArrayBuffer(this.files[0]);
   }
 }
 
