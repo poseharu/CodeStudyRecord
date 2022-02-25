@@ -1,0 +1,26 @@
+#todoCantainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#todoForm input{
+  font-size: 25px;
+}
+
+#todoList li{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+  margin-bottom: 20px;
+}
+
+#todoList li > div{
+  width: calc(100% - 55px);
+  font-size: 30px;
+}
+#todoList li > button{
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  font-size: 10px;
+}

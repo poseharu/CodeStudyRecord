@@ -1,0 +1,34 @@
+#todayInfoWrapper{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#todayBtnArea{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 10px;
+}
+
+.todayInfoContainer{
+  min-width: 130px;
+  margin: 10px;
+}
+
+.todayInfoContainer > p:first-child{
+  font-size: 20px;
+  font-weight: bold;
+}
+.todayInfoContainer > div:last-child{
+  font-size: 25px;
+  padding: 5px 0;
+}
+
+#weatherInfo{
+  display: flex;
+}
+
+#weatherInfo img{
+  width: 25px;
+  height: 25px;
+}

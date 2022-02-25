@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Momentum</title>
+  </head>
+  <body>
+    <header>
+      <div id="headerArea">
+        <div id="greeting"></div> 
+        <div id="headerMenu">
+          <div id="menuSignUP" class="hidden">회원가입</div>
+          <div id="menuLogIn" class="hidden">로그인</div>
+          <div id="menuLogOut" class="hidden">로그아웃</div>
+        </div>
+      </div>
+    </header>
+    <section id="center">
+      
+      <div id="signUpArea" class="hidden"> 
+        <div id="signUpContainer">
+          <div id="signUpTitle">Sign Up</div>
+          <form id="signUpForm">
+            <div class="inputArea">
+              <input type="text" maxlength="15" value="" autocomplete="off" id="signUpId" required />
+              <label for="signUpId">USER</label>
+            </div>
+            <div class="inputArea">
+              <input type="password" maxlength="15" value="" autocomplete="off" id="signUpPw" required />
+              <label for="signUpPw">PASSWORD</label>
+            </div>
+            <div>
+              <button type="submit" id="signUpBtn">등록</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="logInArea" class="hidden"> 
+        <div id="logInContainer">
+          <div id="logInTitle">Log In</div>
+          <form id="logInForm">
+            <div class="inputArea">
+              <input type="text" maxlength="15" value="" autocomplete="off" id="logInId" required />
+              <label for="logInId">USER</label>
+            </div>
+            <div class="inputArea">
+              <input type="password" maxlength="15" value="" autocomplete="off" id="logInPw" required />
+              <label for="logInPw">PASSWORD</label>
+            </div>
+            <div>
+              <button type="submit" id="logInBtn">로그인</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="musicArea" class="commonArea commonClose">
+        <div class="commonAreaTitle">
+          <div class="titleBtn">
+            <span>Music Player</span>
+            <span class="on">🔺</span>
+          </div>
+        </div>
+        <div id="musicCantainer">
+          <div id="musicControllWrapper">
+            <div id="musicPlayListArea">
+              <ul id="musicPlayList"></ul>
+            </div>
+            <div id="musicInfoArea">
+              <div id="musicTimeArea">
+                <div id="musicProgressConrainter">
+                  <div id="musicProgress"></div>
+                </div>
+                <div id="currentTime"></div>
+                <div id="durationTime"></div>
+              </div>
+              <div id="musicBtnArea">
+                <button id="musicShuffle" class="musicBtn">
+                  <i class="fa-solid fa-shuffle btnDisabled"></i>
+                </button>
+                <button id="musicBackward" class="musicBtn">
+                  <i class="fa-solid fa-backward-step"></i>
+                </button>
+                <button id="musicPlayAndPause" class="musicBtn">
+                  <i class="fa-solid fa-play"></i>
+                </button>
+                <button id="musicForward" class="musicBtn">
+                  <i class="fa-solid fa-forward-step"></i>
+                </button>
+                <button id="musicOnceAndMany" class="musicBtn">
+                  <i class="fa-solid fa-a"></i>
+                </button>
+                <button id="musicRepeat" class="musicBtn">  
+                  <i class="fa-solid fa-repeat btnDisabled"></i>
+                </button>
+                <button id="musicVolume" class="musicBtn">
+                  <i class="fa-solid fa-volume-high"></i>
+                </button>
+                <div id="volumeContainer">
+                  <input id="volumeSetting" type="range" value="1.0" min="0.0" max="1.0" step="0.01">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="musicInfoWrapper">
+            <div class="musicInfoContainer">
+              <p>커버이미지</p>
+              <div id="musicCover"></div>
+            </div>
+            <div class="musicInfoContainer">
+              <p>앨범</p>
+              <div id="musicAlbum"></div>
+            </div>
+            <div class="musicInfoContainer">
+              <p>곡명</p>
+              <div id="musicTitle"></div>
+            </div>
+            <div class="musicInfoContainer">
+              <p>아티스트</p>
+              <div id="musicArtist"></div>
+            </div>
+            <div class="musicInfoContainer">
+              <p>발매일</p>
+              <div id="musicReleaseDate"></div>
+            </div>
+            <div class="musicInfoContainer">
+              <p>가사</p>
+              <div id="musicLyrics">
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="todayInfoArea" class="commonArea commonClose hidden">
+        <div class="commonAreaTitle">
+          <div class="titleBtn">
+            <span>ToDay Infomation</span>
+            <span class="on">🔺</span>
+          </div>
+        </div>
+        <div id="todayBtnArea">
+          <div id="weatherBtn" class="commonBtn">위치 업데이트</div>
+        </div>
+        <div id="todayInfoWrapper">
+          <div class="todayInfoContainer">
+            <p>날짜</p>
+            <div id="dateInfo"></div>
+          </div>
+          <div class="todayInfoContainer">
+            <p>시간</p>
+            <div id="clockInfo"></div>
+          </div>
+          <div class="todayInfoContainer">
+            <p>위치</p>
+            <div id="countryInfo"></div>
+          </div>
+          <div class="todayInfoContainer">
+            <p>날씨</p>
+            <div id="weatherInfo"></div>
+          </div>
+          <div class="todayInfoContainer">
+            <p>온도</p>
+            <div id="tempInfo"></div>
+          </div>
+          <div class="todayInfoContainer">
+            <p>습도</p>
+            <div id="humidityInfo"></div>
+          </div>
+          <div class="todayInfoContainer">
+            <p>바람</p>
+            <div id="windInfo"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="todoArea" class="commonArea commonClose hidden">
+        <div class="commonAreaTitle">
+          <div class="titleBtn">
+            <span>TO Do List</span>
+            <span class="on">🔺</span>
+          </div>
+        </div>
+        <div id="todoCantainer">
+          <form id="todoForm">
+            <div class="inputArea">
+              <input type="text" placeholder="할일을 입력해주세요" required />
+            </div>
+          </form>
+        </div>
+        <ul id="todoList"></ul> 
+      </div>
+    </section>
+
+    <footer>
+      <div id="freepikLink">
+        <a></a>
+      </div>
+      <div class="hidden">
+        <button class="btn1">play sound1</button>
+        <button class="btn2">stop sound1</button>
+        <div id="quote">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </footer>
+    
+    <script src="js/app.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/logInOut.js"></script>
+    <script src="js/music.js"></script>
+    <script src="js/todayImfo.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/background.js"></script>
+    <script src="js/todo.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="https://kit.fontawesome.com/04e09b4900.js" crossorigin="anonymous"></script>
+  </body>
+</html>

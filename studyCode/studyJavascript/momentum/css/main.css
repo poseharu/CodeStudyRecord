@@ -1,0 +1,102 @@
+body, html {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Hi Melody', cursive;
+}
+
+body {
+  background-size: cover;
+  background-position: center center;
+  color: black;
+  display: flex;
+  align-items: center; 
+  flex-direction: column;
+}
+
+header{
+  display: flex;
+  width: 100%;
+}
+#headerArea{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px;
+  margin-bottom: 0px;
+}
+
+section#center{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.commonArea{
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: rgba(255,255,255,.5);
+  margin: 10px;
+  margin-top: 0px;
+  min-height: 0;
+}
+.commonClose{
+  overflow: hidden;
+  height: 55px;
+}
+
+.commonAreaTitle{
+  text-align: center;
+  font-size: 35px;
+  margin: 10px;
+}
+
+.titleBtn{
+  cursor: pointer;
+  display: inline-block;
+}
+
+.titleBtn > span:last-child{
+  font-size: 20px;
+}
+.titleBtn > span:last-child.on{
+  display: inline-block;
+  transform: translateY(-10px) rotate(180deg);
+}
+
+/* .commonAreaTitle > span{
+  cursor: pointer;
+}
+.commonAreaTitle > span > span:last-child{
+  font-size: 20px;
+} */
+/* .commonAreaTitle >span:last-child{
+  font-size: 20px;
+} */
+/* .commonAreaTitle > span > span:last-child.on{
+  display: inline-block;
+  transform: translateY(-10px) rotate(180deg);
+} */
+
+footer{
+  display: flex;
+}
+footer #freepikLink{
+  font-size: 20px;
+  padding: 10px;
+}
+
+.hidden{
+  display: none;
+}
+
+.commonBtn{
+  padding: 5px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}

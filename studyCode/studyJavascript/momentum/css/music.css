@@ -1,0 +1,130 @@
+#musicCantainer{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#musicControllWrapper{
+  margin: 0 10px;
+}
+
+.musicBtn {
+  background: none;
+  border: 0;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.btnDisabled{
+  color: rgba(0,0,0,.3);
+}
+#currentTime, #durationTime{
+  display: inline-block;
+  font-size: 25px;
+  width: 70px;
+}
+
+#musicPlayAndPause{
+  width: 25px;
+}
+#musicOnceAndMany{
+  width: 25px;
+}
+
+#volumeContainer{
+  display: inline-block;
+}
+
+#volumeSetting{
+  -webkit-appearance: none;
+  width: 50px;
+  height: 5px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+}
+/* Special styling for WebKit/Blink */
+input[type=range]#volumeSetting::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  width: 5px;
+  height: 10px;
+  border-radius: 10%;
+  background: #ff3b3b;
+  cursor: pointer;
+}
+/* All the same stuff for Firefox */
+input[type=range]#volumeSetting::-moz-range-thumb{
+  width: 5px;
+  height: 5px;
+  border-radius: 10%;
+  background: #ff3b3b;
+  cursor: pointer;
+}
+
+.musicInfoContainer{
+  min-width: 130px;
+  margin: 10px;
+}
+
+.musicInfoContainer > p:first-child{
+  font-size: 20px;
+  font-weight: bold;
+}
+.musicInfoContainer > div:last-child{
+  font-size: 25px;
+  padding: 5px 0;
+}
+
+#musicCover{
+  width: 86vw;
+  height: 86vw;
+  max-width: 360px;
+  max-height: 360px;
+}
+
+#musicCover img{
+  width: 100%;
+  height: 100%;
+}
+
+#musicLyrics p{
+  white-space: pre-wrap;
+  font-size: 20px;
+}
+
+#musicProgressConrainter{
+  height: 8px;
+  width: 100%;
+  background-color: lightgray;
+  border-radius: 4px;
+  margin: 10px 0;
+  cursor: pointer;
+  /* caret-color: transparent; */
+}
+
+#musicProgress{
+  height: 100%;
+  width: 0%;
+  background-color: #ff0050;
+  border-radius: 4px;
+  /* transition: width 0.1s linear;
+  caret-color: transparent; */
+}
+
+#musicPlayList li{
+  display: flex;
+  margin-bottom: 5px
+}
+
+#musicPlayList > li > div:first-child{
+  padding: 5px 0;
+  font-size: 30px;
+  margin-right: 20px;
+}
+
+#musicPlayList > li > div:last-child{
+  width: 100%;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 5px 0;
+  font-size: 25px;
+}
