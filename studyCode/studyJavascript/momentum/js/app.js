@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', function(){
   initLogInOut();
   initMusic();
   initTodayInfo();
-  // initWeather();
+  initWeather();
   initTodo();
 
   commonEventListener();
