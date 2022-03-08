@@ -107,8 +107,6 @@ input[type=range]#volumeSetting::-moz-range-thumb{
   width: 0%;
   background-color: #ff0050;
   border-radius: 4px;
-  /* transition: width 0.1s linear;
-  caret-color: transparent; */
 }
 
 #musicPlayList li{
@@ -127,4 +125,12 @@ input[type=range]#volumeSetting::-moz-range-thumb{
   border-bottom: 1px solid #e0e0e0;
   padding: 5px 0;
   font-size: 25px;
+}
+
+#musicPlayList > li > div:last-child > span{
+  cursor: pointer;
+}
+
+li.selectMusic{
+  color:blue;
 }

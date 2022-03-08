@@ -65,20 +65,6 @@ section#center{
   transform: translateY(-10px) rotate(180deg);
 }
 
-/* .commonAreaTitle > span{
-  cursor: pointer;
-}
-.commonAreaTitle > span > span:last-child{
-  font-size: 20px;
-} */
-/* .commonAreaTitle >span:last-child{
-  font-size: 20px;
-} */
-/* .commonAreaTitle > span > span:last-child.on{
-  display: inline-block;
-  transform: translateY(-10px) rotate(180deg);
-} */
-
 footer{
   display: flex;
 }

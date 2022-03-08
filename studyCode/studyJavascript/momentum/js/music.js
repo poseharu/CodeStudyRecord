@@ -1,61 +1,6 @@
 const musicList = [
   {
-    album:"그 여름을 틀어줘",
-    track: 1,
-    cover:"music/cover/싹쓰리_그 여름을 틀어줘.jpg",
-    title: "그 여름을 틀어줘",
-    artist: "싹쓰리 (유두래곤 & 린다G & 비룡)",
-    releaseDate: "2020.07.25",
-    fileUrl: "music/MP3/test.mp3",
-    lyrics:
-`이 여름 다시 한번 설레고 싶다
-그때 그 여름을 틀어줘 그 여름을 들려줘
-그때 그 여름을 틀어줘 다시 한번 또 불러줘
-
-1, 2, SSAK 3
-Okay okay okay
-Alright alright alright
-저 바다가 부를 때
-Go back Go back Go back
-그해 여름으로 손잡고 뛰어들래? (Ooh~)
-
-Uh uh uh I'm UD-UD, MY NEW I.D
-그 시절 날 웃고 울리던 멜로디
-하늘은 우릴 향해 열려있어 uh
-그리고 내 곁에는 네가 있어 uh
-RE-PLAY 이 계절을 멈추지 마요
-밤새도록 Play 해줘
-
-그때 그 여름을 틀어줘 그 여름을 들려줘
-(내가 많이 설렜었던, 참 많이 뜨거웠던)
-그때 그 여름을 틀어줘 다시 한번 또 불러줘
-
-올라타 라타 라타 파도 타고 We flow
-흘러 흘러 닿을 수 있을까?
-왠지 왠지 왠지 올해 여름 바람
-널 떠올려 그날의 ooh~
-I love it, like it, yeah I like it!
-
-돈이 없었지 깡이 없었나 아 예예예예예
-일이 없었지 감이 없었나 아 예예예예예
-Youth- Flex- 이 계절을 아끼지 마요
-밤새도록 Play 해줘
-
-그때 그 여름을 틀어줘 그 여름을 들려줘
-(내가 많이 설렜었던, 참 많이 뜨거웠던)
-그때 그 여름을 틀어줘 다시 한번 또 불러줘
-
-이 여름도 언젠가는 그해 여름
-오늘이 가장 젊은 내 여름
-이 계절에 머무르고 싶어
-언제까지 영원히 으음 음
-
-1, 2, 3!
-그때 그 여름을 틀어줘 그 여름을 들려줘
-(내가 많이 사랑했던, 참 많이 설렜었던)
-그때 그 여름을 틀어줘 다시 한번 또 불러줘`
-  },
-  {
+    id: 10,
     album:"그 여름을 틀어줘",
     track: 1,
     cover:"music/cover/싹쓰리_그 여름을 틀어줘.jpg",
@@ -112,6 +57,7 @@ Youth- Flex- 이 계절을 아끼지 마요
 그때 그 여름을 틀어줘 다시 한번 또 불러줘`
   },
   {
+    id: 3,
     album:"DON'T TOUCH ME",
     track: 1,
     cover:"music/cover/환불원정대_DON'T TOUCH ME.jpg",
@@ -197,6 +143,7 @@ wanna be original
 자꾸 건드리네 don't touch me`
   },
   {
+    id: 6,
     album:"NEXT EPISODE",
     track: 2,
     cover:"music/cover/AKMU_NEXT EPISODE.png",
@@ -251,6 +198,7 @@ Ooh show how we love
 핫 둘 셋 숨 딱 참고 낙하`
   },
   {
+    id: 5,
     album:"Still I Love You",
     track: 1,
     cover:"music/cover/토요태_Still I Love You.jpg",
@@ -332,6 +280,7 @@ I love you 다신 볼 수 없어도
 우리는 또 아파하겠지`
   },
   {
+    id: 7,
     album:"소녀 같은 맘을 가진 그댈 생각하면 아파요 (다비치 X soundtrack#1)",
     track: 1,
     cover:"music/cover/다비치_소녀 같은 맘을 가진 그댈 생각하면 아파요.jpg",
@@ -419,7 +368,7 @@ function initMusic(){
 
   if(settingData !== null){
     const parseData = JSON.parse(settingData);
-    currentMusicMod.index = musicList.length-1 < parseData.index ? musicList.length-1 : parseData.index;
+    currentMusicMod.index = parseInt(musicList.length-1 < parseData.index ? musicList.length-1 : parseData.index);
     currentMusicMod.isOnce = parseData.isOnce;
     currentMusicMod.isRepeat = parseData.isRepeat;
     currentMusicMod.isShuffle = parseData.isShuffle;
@@ -438,15 +387,13 @@ function initMusic(){
   musicAudio.addEventListener("ended", musicPlayingEnd);
   musicAudio.addEventListener("timeupdate", showMusicProgressTime);
   musicAudio.addEventListener("canplay", showMusicProgressTime);
-  // musicAudio.addEventListener("play", ()=>{ console.log("실행중!");});
-  // musicAudio.addEventListener("pause", ()=>{console.log("정지중!");});
 
   //재생 시점 설정
   progressEl.addEventListener("click", (e)=>{
     musicAudio.currentTime = (e.offsetX / progressEl.clientWidth) * musicAudio.duration;
   });
 
-  //음악 재생
+  //음악 재생/일시정지
   playAndPauseEl.addEventListener("click", ()=>{
     currentMusicMod.isPlay = !currentMusicMod.isPlay;
     musicPlayAndPauseIcon();
@@ -458,12 +405,10 @@ function initMusic(){
   backwardEl.addEventListener("click", ()=>{
     if(currentMusicMod.isShuffle) currentMusicMod.randomIndex();
     else currentMusicMod.prevIndex();
-    musicAudio.src = musicList[currentMusicMod.index].fileUrl;
-    if(currentMusicMod.isPlay){
-      musicAudio.play();
-      saveMusicSetting();
-      currentMusicMod.historyMusicList = [];
-    } 
+
+    const elementId = "music_id_" + musicList[currentMusicMod.index].id;
+    selectMusic(elementId);
+    settingMusic();
     makeMusicInfo();
   });
 
@@ -471,12 +416,10 @@ function initMusic(){
   forwardEl.addEventListener("click", ()=>{
     if(currentMusicMod.isShuffle) currentMusicMod.randomIndex();
     else currentMusicMod.nextIndex();
-    musicAudio.src = musicList[currentMusicMod.index].fileUrl;
-    if(currentMusicMod.isPlay){
-      musicAudio.play();
-      saveMusicSetting();
-      currentMusicMod.historyMusicList = [];
-    }
+
+    const elementId = "music_id_" + musicList[currentMusicMod.index].id;
+    selectMusic(elementId);
+    settingMusic();
     makeMusicInfo();
   });
 
@@ -518,21 +461,57 @@ function initMusic(){
   });
 }
 
+//index에 따라 파일경로 변경
+//이전곡이 재생중일때 설정한 곡도 재생하기
+function settingMusic(){
+  musicAudio.src = musicList[currentMusicMod.index].fileUrl;
+  if(currentMusicMod.isPlay){
+    musicAudio.play();
+    saveMusicSetting();
+    currentMusicMod.historyMusicList = [];
+  } 
+}
+
+//화면에 플레이 리스트 부분 만들기
 function musicPlayList(){
   const ulElement = document.querySelector("#musicPlayListArea ul");
-  // ulElement.innerHTML="";
   
-  musicList.forEach((data, idex)=>{
+  musicList.forEach((data, index)=>{
     const liElement = document.createElement("li");
     const orderDiv = document.createElement("div");
     const textDiv = document.createElement("div");
+    const textSpan = document.createElement("span");
 
-    orderDiv.innerText = idex+1;
-    textDiv.innerHTML = data.title;
+    //현재 곡일때 활성화하기 클래스 부여
+    if(index === currentMusicMod.index) liElement.classList.add('selectMusic');
+
+    liElement.id = "music_id_" + musicList[index].id;
+    liElement.dataset.index = index;
+    orderDiv.innerText = index+1;
+    textSpan.innerHTML = data.title;
+    textDiv.appendChild(textSpan);
     liElement.appendChild(orderDiv);
     liElement.appendChild(textDiv);
     ulElement.appendChild(liElement);
+
+    textSpan.addEventListener('click', (e)=>{
+      const selectLiEl = e.target.parentNode.parentNode;
+      selectMusic(selectLiEl.id);
+      settingMusic();
+      makeMusicInfo();
+    });
   });
+}
+
+//선택된 곡에 활성화 표시하기
+function selectMusic(elementId){
+  const el = document.querySelector("#"+elementId);
+  const replaceEl = document.querySelector(".selectMusic");
+
+  replaceEl.classList.remove('selectMusic');
+  el.classList.add('selectMusic');
+  currentMusicMod.index = parseInt(el.dataset.index);
+  
 }
 
 function makeMusicInfo(){
@@ -566,7 +545,6 @@ function initVolume(volume){
 
 function musicVolume(){
   const musicVolume = document.querySelector("#musicVolume i");
-
   if(musicVolume.classList.contains("fa-volume-high")) initVolume("0");
   else initVolume(currentMusicMod.isVulume);
 }
@@ -669,8 +647,9 @@ function musicPlayingEnd(){
     }
   }
   if(currentMusicMod.isPlay){
+    const elementId = "music_id_" + musicList[currentMusicMod.index].id;
+    selectMusic(elementId);
     makeMusicInfo();
-    //설정값 저장
     saveMusicSetting();
   }
 }
