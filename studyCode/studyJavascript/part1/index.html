@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>javascript 기본 예제</title>
+    
+    <link rel="stylesheet" href="css/mainStyle.css">
+  </head>
+  <body>
+    <a href="../index.html">back</a>
+
+    <h1>javascript 예제</h1>
+
+    <section id="section1">
+      <p class="title">document.write('출력 내용')</p>
+      <div>
+        <script>
+          document.write('1 + 1 계산하기 : ' + (1+1));
+        </script>
+      </div>
+    </section>
+    <section id="section2">
+      <p class="title">onclick : 버튼 클릭시 alert('경고 내용') 띄우기</p>
+      <div>
+        <input type="button" value="click" onclick="alert('hi~')">
+      </div>
+    </section>
+    <section id="section3">
+      <p class="title">onchange : 입력내용을 변경하고 포커스 아웃했을때 alert('경고 내용') 띄우기</p>
+      <div>
+        <input type="text" value="hello~" onchange="alert('change')">
+      </div>
+    </section>
+    <section id="section4">
+      <p class="title">년도별 동물띠 가져오기</p>
+      <div class="inputArea">
+        <input type="text" id="inputYear" value="" placeholder="년도 4자리를 입력해주세요.">
+        <button id="btn4">찾기</button>
+        <div class="messageStyle" id="yearCheckMessage"></div>
+      </div>
+      <div class="note" id="noteAnser"></div>
+    </section>
+
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>
