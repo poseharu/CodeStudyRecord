@@ -353,19 +353,13 @@ const currentMusicMod = {
   }
 }
 
-//music.js 최초 설정
-function initMusic(){
-  const settingData = localStorage.getItem(MUSIC_KEY);
-  const progressEl = document.querySelector("#musicProgressConrainter");
-  const playAndPauseEl = document.querySelector("#musicPlayAndPause");
-  const backwardEl = document.querySelector("#musicBackward");
-  const forwardEl = document.querySelector("#musicForward");
-  const shuffleEl = document.querySelector("#musicShuffle");
-  const onceAndManyEl = document.querySelector("#musicOnceAndMany");
-  const repeatEl = document.querySelector("#musicRepeat");
-  const volumeMutedEl = document.querySelector("#musicVolume");
-  const volumeSettingEl = document.querySelector("#volumeSetting");
+//유저별 세팅 키이름
+function musicKeyName(){
+  return sessionStorage.getItem(ISLOGIN_KEY) + "_" + MUSIC_KEY;
+}
 
+function userMusicSetting(){
+  const settingData = localStorage.getItem(musicKeyName());
   if(settingData !== null){
     const parseData = JSON.parse(settingData);
     currentMusicMod.index = parseInt(musicList.length-1 < parseData.index ? musicList.length-1 : parseData.index);
@@ -373,6 +367,13 @@ function initMusic(){
     currentMusicMod.isRepeat = parseData.isRepeat;
     currentMusicMod.isShuffle = parseData.isShuffle;
     currentMusicMod.isVulume = parseData.isVulume;
+  }
+  else{
+    currentMusicMod.index = 0;
+    currentMusicMod.isOnce = false;
+    currentMusicMod.isRepeat = false;
+    currentMusicMod.isShuffle = false;
+    currentMusicMod.isVulume = 1;
   }
 
   musicAudio.src = musicList[currentMusicMod.index].fileUrl;
@@ -383,6 +384,21 @@ function initMusic(){
   musicRepeatIcon();
   initVolume(currentMusicMod.isVulume);
   makeMusicInfo();
+}
+
+//music.js 최초 설정
+function initMusic(){
+  const progressEl = document.querySelector("#musicProgressConrainter");
+  const playAndPauseEl = document.querySelector("#musicPlayAndPause");
+  const backwardEl = document.querySelector("#musicBackward");
+  const forwardEl = document.querySelector("#musicForward");
+  const shuffleEl = document.querySelector("#musicShuffle");
+  const onceAndManyEl = document.querySelector("#musicOnceAndMany");
+  const repeatEl = document.querySelector("#musicRepeat");
+  const volumeMutedEl = document.querySelector("#musicVolume");
+  const volumeSettingEl = document.querySelector("#volumeSetting");
+
+  userMusicSetting();
 
   musicAudio.addEventListener("ended", musicPlayingEnd);
   musicAudio.addEventListener("timeupdate", showMusicProgressTime);
@@ -475,6 +491,7 @@ function settingMusic(){
 //화면에 플레이 리스트 부분 만들기
 function musicPlayList(){
   const ulElement = document.querySelector("#musicPlayListArea ul");
+  ulElement.innerHTML = "";
   
   musicList.forEach((data, index)=>{
     const liElement = document.createElement("li");
@@ -678,5 +695,5 @@ function saveMusicSetting(){
     isVulume: currentMusicMod.isVulume
   }
   
-  localStorage.setItem(MUSIC_KEY, JSON.stringify(setting));
+  localStorage.setItem(musicKeyName(), JSON.stringify(setting));
 }

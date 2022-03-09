@@ -53,6 +53,7 @@ function isUserData(userName){
   return userData.length === 0?[]:userData[0];
 }
 
+//로그인 시도시 처리
 logInForm.addEventListener("submit", (event)=>{
   //어떤 event의 기본 행동이든지 발생되지 않도록 막는다.
   event.preventDefault();
@@ -84,9 +85,12 @@ logInForm.addEventListener("submit", (event)=>{
     menuSignUP.classList.add(HIDDEN_CLASSNAME);
     paintGreetings(userName);
     initTodo();
+    userMusicSetting();
   }
 });
 
+//회원정보 작성후 정보 유효성 검사
+//이상없으면 회원정보 저장
 signUpForm.addEventListener("submit", (event)=>{
   event.preventDefault();
   
@@ -120,10 +124,15 @@ signUpForm.addEventListener("submit", (event)=>{
     menuLogIn.classList.add(HIDDEN_CLASSNAME);
     paintGreetings(userName);
     initTodo();
+    userMusicSetting();
   }
 });
 
+//로그아웃 버튼 클릭시
 menuLogOut.addEventListener("click", ()=>{
+  currentMusicMod.isPlay = false;
+  musicPlayAndPauseIcon();
+
   todoArea.classList.add(HIDDEN_CLASSNAME);
   todayInfoArea.classList.add(HIDDEN_CLASSNAME);
   musicArea.classList.add(HIDDEN_CLASSNAME);
@@ -136,6 +145,7 @@ menuLogOut.addEventListener("click", ()=>{
   sessionStorage.removeItem(ISLOGIN_KEY);
 });
 
+//로그인 버튼 클릭시
 menuLogIn.addEventListener("click", ()=>{
   signUpArea.classList.add(HIDDEN_CLASSNAME);
   logInArea.classList.remove(HIDDEN_CLASSNAME);
@@ -145,6 +155,7 @@ menuLogIn.addEventListener("click", ()=>{
   logInPw.value = "";
 });
 
+//회원가입 버튼 클릭시
 menuSignUP.addEventListener("click", ()=>{
   signUpArea.classList.remove(HIDDEN_CLASSNAME);
   logInArea.classList.add(HIDDEN_CLASSNAME);
@@ -154,6 +165,9 @@ menuSignUP.addEventListener("click", ()=>{
   signUpPw.value = "";
 });
 
+//세션을 통해 로그인 상태인지 확인후
+//로그인 상태이면 메인화면 띄우기
+//로그아웃 상태이면 로그인화면 띄우기
 function initLogInOut(){
   const islogin = sessionStorage.getItem(ISLOGIN_KEY);
 
